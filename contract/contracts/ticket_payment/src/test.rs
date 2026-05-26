@@ -75,7 +75,6 @@ impl MockCancelledRegistry {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn decrement_inventory(_env: Env, _event_id: String, _tier_id: String, _user: Address) {}
@@ -158,7 +157,6 @@ impl MockEventRegistry {
                 accepted_tokens,
                 use_global_whitelist,
                 referral_rate_bps: 0,
-                transfer_lock_duration: 0,
             });
         }
         None
@@ -246,7 +244,6 @@ impl MockEventRegistry2 {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -333,7 +330,6 @@ impl MockAuctionEventRegistry {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -1250,7 +1246,6 @@ impl MockEventRegistryMaxSupply {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -1382,7 +1377,6 @@ impl MockEventRegistryWithInventory {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -1644,7 +1638,6 @@ impl MockEventRegistryWithMilestones {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -2079,7 +2072,6 @@ impl MockEventRegistryEarlyBird {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -2645,7 +2637,6 @@ impl MockEventRegistryWithOrganizer {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -3006,7 +2997,6 @@ impl MockPlatformRegistryE2E {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         };
 
         env.storage()
@@ -3539,7 +3529,6 @@ impl MockEventRegistryRefund {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -3627,7 +3616,6 @@ impl MockEventRegistryWithResaleCap {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -3935,7 +3923,6 @@ impl MockRegistryZeroCap {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -4608,7 +4595,6 @@ impl MockEventRegistryUsdPriced {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -5364,7 +5350,6 @@ impl MockEventRegistryWithFailingLoyaltyUpdate {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn increment_inventory(
@@ -5513,7 +5498,6 @@ impl MockEventRegistryWithLoyalty {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn increment_inventory(
@@ -5610,7 +5594,6 @@ impl MockEventRegistryWithExcessiveLoyaltyDiscount {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn increment_inventory(
@@ -5858,7 +5841,6 @@ impl MockEventRegistryCustomFee {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -6008,7 +5990,6 @@ impl MockEventRegistryHighPrice {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -6137,7 +6118,6 @@ impl MockEventRegistryRefundDeadline {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -6761,7 +6741,6 @@ impl MockEventRegistryForDust {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
 
@@ -6984,7 +6963,6 @@ impl MockEventRegistryForReferral {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn increment_inventory(
@@ -7079,7 +7057,6 @@ impl MockEventRegistryFullLoyaltyDiscount {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: 0,
         })
     }
     pub fn increment_inventory(
@@ -8311,12 +8288,6 @@ impl MockTransferLockRegistry {
     }
 
     pub fn get_event(env: Env, event_id: String) -> Option<event_registry::EventInfo> {
-        let lock_secs: u64 = env
-            .storage()
-            .instance()
-            .get(&Symbol::new(&env, "lock_secs"))
-            .unwrap_or(0u64);
-
         let mut tiers = soroban_sdk::Map::new(&env);
         tiers.set(
             String::from_str(&env, "tier_1"),
@@ -8365,7 +8336,6 @@ impl MockTransferLockRegistry {
             accepted_tokens: soroban_sdk::vec![&env],
             use_global_whitelist: true,
             referral_rate_bps: 0,
-            transfer_lock_duration: lock_secs,
         })
     }
 
@@ -8437,7 +8407,7 @@ fn test_transfer_blocked_within_lock_period() {
     let result = client.try_transfer_ticket(&payment_id, &new_owner, &None);
     assert_eq!(
         result,
-        Err(Ok(TicketPaymentError::NonTransferable)),
+        Err(Ok(TicketPaymentError::InvalidPaymentStatus)),
         "transfer within lock period must return NonTransferable"
     );
 
