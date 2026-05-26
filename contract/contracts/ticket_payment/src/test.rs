@@ -937,8 +937,48 @@ fn test_upgrade_unauthorized_panics() {
         _ => panic!("Dummy contract is not a Wasm contract"),
     };
 
-    // No env.mock_all_auths() here, so require_auth should fail.
+    // No env.mock_all_auths() here, so require_auth should fail with auth error.
     client.upgrade(&new_wasm_hash);
+}
+
+// #679: Add ticket_payment unit test for upgrade function post-upgrade state verification
+
+#[test]
+fn test_upgrade_state_verification_fails_on_corrupt_state() {
+    let env = Env::default();
+    env.mock_all_auths();
+
+    let (client, _admin, _, _, _) = setup_test(&env);
+
+    let dummy_id = env.register(DummyUpgradeable, ());
+    let new_wasm_hash = match dummy_id.executable() {
+        Some(soroban_sdk::Executable::Wasm(hash)) => hash,
+        _ => panic!("Dummy contract is not a Wasm contract"),
+    };
+
+    // Manually corrupt a critical storage key (clear the admin address)
+    env.as_contract(&client.address, || {
+        env.storage().persistent().remove(&DataKey::Admin);
+    });
+
+    // Call upgrade - it should detect the missing admin and emit ContractVerificationFailed event
+    client.upgrade(&new_wasm_hash);
+
+    // Check for ContractVerificationFailed event for missing Admin key
+    let events = env.events().all();
+    let topic_name = Symbol::new(&env, "ContractVerificationFailed");
+    let failure_event = events.iter().find(|e| {
+        for t in e.1.iter() {
+            let s_res: Result<Symbol, _> = t.clone().try_into_val(&env);
+            if let Ok(s) = s_res {
+                if s == topic_name {
+                    return true;
+                }
+            }
+        }
+        false
+    });
+    assert!(failure_event.is_some(), "Expected ContractVerificationFailed event for missing Admin key");
 }
 
 #[test]
@@ -8288,6 +8328,12 @@ impl MockTransferLockRegistry {
     }
 
     pub fn get_event(env: Env, event_id: String) -> Option<event_registry::EventInfo> {
+        let _lock_secs: u64 = env
+            .storage()
+            .instance()
+            .get(&Symbol::new(&env, "lock_secs"))
+            .unwrap_or(0u64);
+
         let mut tiers = soroban_sdk::Map::new(&env);
         tiers.set(
             String::from_str(&env, "tier_1"),
