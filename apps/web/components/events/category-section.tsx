@@ -79,7 +79,7 @@ export function CategorySection({ onError }: CategorySectionProps) {
   const categoriesToRender = categories.length > 0 ? categories : defaultCategories;
 
   return (
-    <section className="px-4 bg-[#FFFBE9] pt-12 pb-6">
+    <section className="px-4 bg-base pt-12 pb-6">
       <div className="mx-auto max-w-[1221px]">
         <motion.div
           initial={{ opacity: 0, y: 10 }}

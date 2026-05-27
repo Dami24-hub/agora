@@ -43,7 +43,7 @@ export function RegistrationBox({ event, host }: RegistrationBoxProps) {
 
   return (
     <>
-      <div className="bg-[#FFEFD3] rounded-[24px] p-6 sm:p-8 flex flex-col gap-8 relative overflow-hidden border border-black/5 shadow-sm">
+      <div className="bg-surface rounded-[24px] p-6 sm:p-8 flex flex-col gap-8 relative overflow-hidden border border-black/5 shadow-sm">
         <div className="flex justify-between items-center z-10 flex-wrap gap-4">
           <div className="bg-white rounded-full px-6 py-2.5 italic text-gray-400 font-medium text-[17px] sm:text-[20px] shadow-sm flex-1 min-w-[150px]">
             Registration
@@ -79,7 +79,7 @@ export function RegistrationBox({ event, host }: RegistrationBoxProps) {
           <button
             type="button"
             onClick={handleRegisterClick}
-            className="bg-[#FDDA23] text-black font-bold text-[18px] sm:text-[22px] h-14 sm:h-16 px-8 sm:px-10 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center justify-center gap-4 group transition-all"
+            className="bg-accent text-black font-bold text-[18px] sm:text-[22px] h-14 sm:h-16 px-8 sm:px-10 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center justify-center gap-4 group transition-all"
           >
             {!isFree && (
               <Image

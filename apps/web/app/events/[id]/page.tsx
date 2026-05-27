@@ -4,18 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { dataEvents } from "@/components/events/mockups";
 import { RegistrationBox } from "@/components/events/registration-box";
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const Map = dynamic(() => import("@/components/events/event-location-map"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-black/5 animate-pulse flex items-center justify-center">
-      <span className="text-black/50 font-medium font-heading">
-        Loading map...
-      </span>
-    </div>
-  ),
-});
+import MapClient from "@/components/events/map-client";
 
 export default async function EventDetailPage({
   params,
@@ -40,7 +29,7 @@ export default async function EventDetailPage({
   };
 
   return (
-    <main className="flex flex-col min-h-screen bg-[#FFFBE9]">
+    <main className="flex flex-col min-h-screen bg-base">
       <Navbar />
 
       <div className="flex-1 w-full max-w-[1221px] mx-auto px-6 py-6 sm:py-12">
@@ -48,7 +37,7 @@ export default async function EventDetailPage({
           {/* LEFT COLUMN (Desktop) / TOP ITEMS (Mobile) */}
           <div className="lg:w-[55%] flex flex-col gap-8 lg:gap-10">
             {/* Cover Image Container - Dark Navy Background */}
-            <div className="relative aspect-16/10 sm:aspect-16/11 w-full rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#0B151F] shadow-sm flex items-center justify-center p-6 sm:p-12">
+            <div className="relative aspect-16/10 sm:aspect-16/11 w-full rounded-[32px] sm:rounded-[40px] overflow-hidden bg-dark shadow-sm flex items-center justify-center p-6 sm:p-12">
               <div className="relative w-full h-full">
                 <Image
                   src={event.imageUrl}
@@ -99,7 +88,7 @@ export default async function EventDetailPage({
                 {event.location}
               </p>
               <div className="relative aspect-16/10 w-full rounded-[24px] overflow-hidden border border-black/10">
-                <Map location={event.location} />
+                <MapClient location={event.location} />
               </div>
             </div>
           </div>
@@ -216,7 +205,7 @@ export default async function EventDetailPage({
                 {event.location}
               </p>
               <div className="relative aspect-16/10 w-full rounded-[24px] overflow-hidden border border-black/10">
-                <Map location={event.location} />
+                <MapClient location={event.location} />
               </div>
             </div>
           </div>

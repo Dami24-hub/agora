@@ -94,7 +94,7 @@ export function OrganizerComponent({ onError }: OrganizerComponentProps) {
   };
 
   return (
-    <div className="p-10 pl-45 hidden lg:block bg-[#FFFBE9]">
+    <div className="p-10 pl-45 hidden lg:block bg-base">
       <div className="flex justify-start items-center gap-4 p-5 pb-10">
         <h1 className="font-semibold md:text-4xl pl-3">Explore organizers</h1>
         <Image
@@ -150,13 +150,13 @@ export function OrganizerComponent({ onError }: OrganizerComponentProps) {
         <Image
           src={left}
           alt="Left Arrow"
-          className="w-12 h-12 p-3 hover:cursor-pointer bg-[#FFEFD3] rounded-full"
+          className="w-12 h-12 p-3 hover:cursor-pointer bg-surface rounded-full"
           onClick={scrollLeft}
         />
         <Image
           src={right}
           alt="Right Arrow"
-          className="w-12 h-12 p-3 hover:cursor-pointer bg-[#FFEFD3] rounded-full"
+          className="w-12 h-12 p-3 hover:cursor-pointer bg-surface rounded-full"
           onClick={scrollRight}
         />
       </span>

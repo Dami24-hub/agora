@@ -202,7 +202,7 @@ export function FilterSidebar({
             className="
               fixed top-0 right-0 z-50 h-full
               w-full max-w-[360px] sm:max-w-[420px]
-              bg-[#FFFBE9] shadow-[-8px_0_32px_rgba(0,0,0,0.12)]
+              bg-base shadow-[-8px_0_32px_rgba(0,0,0,0.12)]
               flex flex-col overflow-y-auto
             "
             variants={sidebarVariants}
@@ -450,7 +450,7 @@ function IconPill({ label, icon, active, onClick }: IconPillProps) {
         flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13px] font-medium border transition-all
         ${
           active
-            ? "bg-[#FDDA23] text-black border-black shadow-[-3px_3px_0_rgba(0,0,0,1)]"
+            ? "bg-accent text-black border-black shadow-[-3px_3px_0_rgba(0,0,0,1)]"
             : "bg-white text-black border-black/20 hover:border-black/50"
         }
       `}
