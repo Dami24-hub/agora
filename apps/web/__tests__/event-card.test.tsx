@@ -3,11 +3,13 @@ import { expect, afterEach, describe, it, vi } from "vitest";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { EventCard } from "@/components/events/event-card";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 // Mock next/image
 vi.mock("next/image", () => ({
   default: ({ src, alt, width, height }: { src: string; alt: string; width: number; height: number }) => (
-    <img src={src} alt={alt} width={width} height={height} />
+    <Image src={src} alt={alt} width={width} height={height} />
   ),
 }));
 
@@ -56,7 +58,7 @@ describe("EventCard", () => {
 
   it("handles click and navigates to event page", () => {
     const mockPush = vi.fn();
-    vi.mocked(require("next/navigation").useRouter).mockReturnValue({ push: mockPush } as any);
+    vi.mocked(useRouter).mockReturnValue({ push: mockPush } as any);
     
     render(<EventCard {...mockEvent} />);
     
