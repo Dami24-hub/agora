@@ -230,16 +230,11 @@ export function Navbar() {
 
                 <motion.div custom={4} variants={linkVariants} className="mt-4">
                   <Link href={isLoggedIn ? "/create-event" : "/auth"} onClick={() => setIsOpen(false)}>
-                    <Button
-                      className="w-full justify-center"
-                      backgroundColor="bg-black"
-                      textColor="text-white"
-                      shadowColor="rgba(0,0,0,0.5)"
-                    >
+                    <Button variant="dark" className="w-full justify-center">
                       <span>Create Your Event</span>
                       <Image
                         src="/icons/arrow-up-right-01.svg"
-                        alt="Arrow"
+                        alt="Create event"
                         width={24}
                         height={24}
                         className="invert group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
